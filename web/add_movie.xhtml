@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Add Movie</title>
+    </head>
+    <body>
+        <h2> Add Movie</h2>
+
+        <h:form>
+            <h:panelGrid columns="3">
+
+                <h:outputText value="Movie ID"/>
+                <h:inputText id="movieIdInputText" value="#{addMovieBean.movieId}">
+                </h:inputText>
+
+                <br></br>
+                <h:outputText value="Title"/>
+                <h:inputText id="TitleIdInputText" value="#{addMovieBean.title}">
+                </h:inputText>
+
+                <br></br>
+                <h:outputText value="Release Date"/>
+                <h:inputText id="releaseIdInputText" value="#{addMovieBean.releaseDate}">
+                    <f:convertDateTime pattern="yyyy-MM-dd" />
+                </h:inputText>
+
+                <br></br>
+                <h:outputText value="Genre"/>
+                <h:inputText id="genreIdInputText" value="#{addMovieBean.genre}">
+                </h:inputText>
+
+                <br></br>
+                <h:outputText value="Director"/>
+                <h:inputText id="directorIdInputText" value="#{addMovieBean.director}">
+                </h:inputText>
+
+                <br></br>
+                <h:outputText value="Rating"/>
+                <h:inputText id="ratingIdInputText" value="#{addMovieBean.rating}">
+                </h:inputText>
+
+                <br></br>
+                <h:commandButton value="Add Movie" action="#{addMovieBean.newMovie}"/>
+
+
+            </h:panelGrid>
+        </h:form>
+
+
+    </body>
+</html>

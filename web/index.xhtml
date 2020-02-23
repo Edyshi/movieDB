@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputLink value="login_page.xhtml">Login</h:outputLink> <br> </br>
+        <h:outputLink value="add_movie.xhtml">Add Movie</h:outputLink>
+    </h:head>
+    <h:body>
+       
+<h2>Movie List</h2>
+        <h:dataTable value="#{listMoviesBean.movies}" 
+                     var="movie" 
+                     styleClass="table"
+                     headerClass="header"
+                     rowClasses="oddRows,evenRows"
+                     cellpadding="10"
+                     cellspacing="5">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{movie.movieId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Title</f:facet>
+                #{movie.title}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Release Date</f:facet>
+                #{movie.releaseDate}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Genre</f:facet>
+                #{movie.genre}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Rating</f:facet>
+                #{movie.rating}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Director</f:facet>
+                #{movie.director}
+            </h:column>
+        </h:dataTable>    
+
+<h:form> 
+    <h:panelGrid>
+        <h:outputText value="Search in Title"></h:outputText>
+        <h:inputText id="titleInputText" value="#{listMoviesBean.title}"></h:inputText>                     
+    </h:panelGrid>
+    <h:commandButton  value="Search in Title" action="#{listMoviesBean.byPattern}"/>
+</h:form>
+
+
+<h:form> 
+    <h:panelGrid>
+        <h:outputText value="Search by Director"></h:outputText>
+        <h:inputText id="directorInputText" value="#{listMoviesBean.director}"></h:inputText>                     
+    </h:panelGrid>
+    <h:commandButton  value="Search by Director" action="#{listMoviesBean.byDirector}"/>
+</h:form>
+
+<h:form> 
+    <h:panelGrid>
+        <h:outputText value="Search by Genre"></h:outputText>
+        <h:inputText id="genreInputText" value="#{listMoviesBean.genre}"></h:inputText>                     
+    </h:panelGrid>
+    <h:commandButton  value="Search by Genre" action="#{listMoviesBean.byGenre}"/>
+</h:form>
+
+<h:form> 
+    <h:panelGrid>
+        <h:outputText value="Min"></h:outputText>
+        <h:inputText id="minInputText" value="#{listMoviesBean.min}"></h:inputText>     
+        <h:outputText value="Max"></h:outputText>
+        <h:inputText id="maxInputText" value="#{listMoviesBean.max}"></h:inputText>    
+    </h:panelGrid>
+    <h:commandButton  value="Search by Average" action="#{listMoviesBean.avgRating}"/>
+</h:form>
+
+
+<h:form> 
+    <h:commandButton  value="Top 10" action="#{listMoviesBean.top10}"/>
+</h:form>
+
+<h:form><h:commandButton  value="Reset" action="#{listMoviesBean.reset}"/>
+</h:form>
+
+
+    </h:body>
+</html>
+
